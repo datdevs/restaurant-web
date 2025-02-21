@@ -1,6 +1,6 @@
-import nx from '@nx/eslint-plugin';
+const nx = require('@nx/eslint-plugin');
 
-export default [
+module.exports = [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
@@ -8,16 +8,7 @@ export default [
     ignores: ['**/dist'],
   },
   {
-    files: [
-      '**/*.ts',
-      '**/*.tsx',
-      '**/*.cts',
-      '**/*.mts',
-      '**/*.js',
-      '**/*.jsx',
-      '**/*.cjs',
-      '**/*.mjs',
-    ],
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx', '**/*.cjs', '**/*.mjs'],
     // Override or add rules here
     rules: {},
   },
@@ -26,6 +17,8 @@ export default [
   {
     files: ['**/*.ts'],
     rules: {
+      '@typescript-eslint/consistent-type-assertions': 'error',
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       '@angular-eslint/directive-selector': [
         'error',
         {
