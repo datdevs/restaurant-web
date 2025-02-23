@@ -1,5 +1,5 @@
-import { NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { LocationStrategy, NgOptimizedImage } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { SectionBlockComponent } from '../../../../components/section-block/section-block.component';
 import { Block2Type } from '../../../../types';
 import { BlockComponent } from '../block';
@@ -11,4 +11,13 @@ import { BlockComponent } from '../block';
   styleUrl: './block-two.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BlockTwoComponent extends BlockComponent<Block2Type> {}
+export class BlockTwoComponent extends BlockComponent<Block2Type> {
+  assetPath = 'assets/images';
+  private readonly locationStrategy = inject(LocationStrategy);
+
+  constructor() {
+    super();
+
+    this.assetPath = this.locationStrategy.getBaseHref() + this.assetPath;
+  }
+}
