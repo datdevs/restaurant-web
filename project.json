@@ -27,7 +27,8 @@
         "stylePreprocessorOptions": {
           "includePaths": ["src/styles"]
         },
-        "scripts": []
+        "scripts": [],
+        "baseHref": "/restaurant-web/"
       },
       "configurations": {
         "production": {
