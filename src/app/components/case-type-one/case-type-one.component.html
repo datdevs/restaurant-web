@@ -2,7 +2,7 @@
 
 <div class="card">
   <div class="card__image">
-    <img alt="{{ c?.tagline }}" fill loading="lazy" [ngSrc]="'/assets/images/cases/' + image() + '.png'" />
+    <img alt="{{ c?.tagline }}" fill loading="lazy" [ngSrc]="assetPath + '/cases/' + image() + '.png'" />
   </div>
 
   <div class="card__content">

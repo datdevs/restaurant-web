@@ -1,5 +1,5 @@
-import { NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { LocationStrategy, NgOptimizedImage } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { CaseTypeWithCta } from '../../types';
 
 @Component({
@@ -12,4 +12,10 @@ import { CaseTypeWithCta } from '../../types';
 export class CaseTypeOneComponent {
   case = input<CaseTypeWithCta>();
   image = input<number>();
+  assetPath = 'assets/images';
+  private readonly locationStrategy = inject(LocationStrategy);
+
+  constructor() {
+    this.assetPath = this.locationStrategy.getBaseHref() + this.assetPath;
+  }
 }
