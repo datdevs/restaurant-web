@@ -28,7 +28,6 @@
           "includePaths": ["src/styles"]
         },
         "scripts": [],
-        "baseHref": "/restaurant-web/"
       },
       "configurations": {
         "production": {
