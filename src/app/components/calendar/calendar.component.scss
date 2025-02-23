@@ -1,0 +1,105 @@
+.calendar {
+  background: #fff;
+  border: 1px solid rgb(86 44 44 / 30%);
+  border-radius: 24px;
+  box-shadow: 0 0 30px 0 rgb(242 84 45 / 10%);
+  padding: 24px 32px;
+
+  &__header {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+
+  &__selector {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.14px;
+    line-height: 24px;
+
+    select {
+      appearance: none;
+      border: 0;
+      box-shadow: none;
+      outline: none;
+
+      &#calendar__month-select {
+        margin-right: 5px;
+        text-align: right;
+      }
+    }
+  }
+
+  &__weekday {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.126px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  &__day {
+    --calendar-day-bg: #fff4f1;
+    --calendar-day-border: var(--primary-color);
+
+    align-items: center;
+    background: var(--calendar-day-bg);
+    border: 1px solid var(--calendar-day-border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 600;
+    gap: 8px;
+    letter-spacing: -0.14px;
+    line-height: 24px;
+    padding: 8px 16px;
+    position: relative;
+    text-align: center;
+
+    &_state {
+      color: var(--primary-color);
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: -0.126px;
+
+      &_busy {
+        color: #aaa;
+      }
+    }
+
+    &_out-of-range {
+      --calendar-day-bg: #f5f5f5;
+      --calendar-day-border: #dfdfdf;
+    }
+
+    &_today {
+      &::after {
+        background: var(--primary-color);
+        border-radius: 50%;
+        content: '';
+        height: 8px;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        width: 8px;
+      }
+    }
+
+    &_busy {
+      --calendar-day-bg: #fff;
+      --calendar-day-border: #d7d7d7;
+
+      cursor: not-allowed;
+    }
+
+    &_selected {
+      --calendar-day-bg: var(--primary-color);
+      --calendar-day-border: var(--primary-color);
+
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+:host {
+  border: 1px solid #562c2c;
+  border-radius: 8px;
+  display: inline-flex;
+  gap: 10px;
+  padding: 5px 10px;
+}
+
+button {
+  transition: opacity 0.3s;
+
+  &:not(.active) {
+    opacity: 0.2;
+  }
+}
+
+img {
+  height: 20px;
+  width: 20px;
+}

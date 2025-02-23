@@ -1,0 +1,9 @@
+@let menus = headerMenus().slice(0, -1);
+
+<ul class="navigation flex items-center">
+  @for (menu of menus; track menu) {
+    <li class="navigation__item">
+      <a class="navigation__link" href="#{{ buildLink(menu) }}">{{ menu }}</a>
+    </li>
+  }
+</ul>

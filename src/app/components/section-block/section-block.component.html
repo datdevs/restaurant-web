@@ -1,0 +1,26 @@
+<section
+  class="section-block"
+  [class]="sectionClass()"
+  [style]="{
+    '--section-block-color': backgroundColor(),
+    '--section-background-image': 'url(' + backgroundImage() + ')',
+  }"
+>
+  <div class="section-block__inner container mx-auto">
+    @if (title()) {
+      <div class="section-block__title">
+        <h2>{{ title() }}</h2>
+      </div>
+    }
+
+    @if (subtitle()) {
+      <div class="section-block__subtitle">
+        <p>{{ subtitle() }}</p>
+      </div>
+    }
+
+    <div class="section-block__content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</section>

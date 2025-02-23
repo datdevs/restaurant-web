@@ -1,0 +1,25 @@
+@let c = case();
+
+<div class="card">
+  <div class="card__image">
+    <img alt="{{ c?.tagline }}" fill loading="lazy" [ngSrc]="'/assets/images/cases/' + image() + '.png'" />
+  </div>
+
+  <div class="card__content">
+    <div class="card__title">
+      <h3>{{ c?.tagline }}</h3>
+    </div>
+
+    <div class="card__subtitle">
+      <p>{{ c?.category }}</p>
+    </div>
+
+    <div class="card__description">
+      <p>{{ c?.description }}</p>
+    </div>
+
+    <div class="card__cta">
+      <a class="card__button" href="#">{{ c?.cta }}</a>
+    </div>
+  </div>
+</div>

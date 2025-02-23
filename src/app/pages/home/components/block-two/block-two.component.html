@@ -1,0 +1,20 @@
+@let block = data();
+
+<app-section-block
+  backgroundColor="#fff6f4"
+  backgroundImage="/assets/images/bg_block_2.png"
+  sectionClass="py-[60px]"
+  [title]="block?.title"
+>
+  <div class="flex justify-center gap-6">
+    @for (case of block?.cases; track $index) {
+      <button class="btn__case">{{ case }}</button>
+    }
+  </div>
+
+  <div class="map">
+    <div class="map__frame">
+      <img alt="Map" fill loading="lazy" [ngSrc]="'/assets/images/map.png'" />
+    </div>
+  </div>
+</app-section-block>

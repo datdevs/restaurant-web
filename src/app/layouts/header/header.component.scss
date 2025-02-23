@@ -1,0 +1,60 @@
+.header {
+  backdrop-filter: blur(7.5px);
+  background: rgb(86 44 44 / 70%);
+  border-bottom: 1px solid rgb(238 238 238 / 20%);
+  left: 0;
+  padding: 10px 16px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+
+  &__logo {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+.btn {
+  transition:
+    color 0.3s,
+    background 0.3s;
+
+  span {
+    display: none;
+  }
+
+  &__icon {
+    color: var(--primary-color);
+  }
+
+  &:not(.btn__icon) {
+    align-items: center;
+    background: var(--primary-color);
+    border-radius: 100px;
+    color: #fff;
+    display: flex;
+    font-size: 16px;
+    font-weight: 400;
+    gap: 8px;
+    height: 40px;
+    justify-content: center;
+    line-height: 20px;
+    padding: 8px 16px;
+    text-transform: capitalize;
+  }
+
+  @media (width < 1600px) {
+    svg {
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  @media (1130px < width < 1600px) {
+    span {
+      display: unset;
+    }
+  }
+}

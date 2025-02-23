@@ -1,0 +1,9 @@
+@let block = data();
+
+<app-section-block sectionClass="py-20" [subtitle]="block?.subtitle" [title]="block?.title">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    @for (case of block?.cases; track $index) {
+      <app-case-type-one [case]="case" [image]="$index + 1"></app-case-type-one>
+    }
+  </div>
+</app-section-block>

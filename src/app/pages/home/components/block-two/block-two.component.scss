@@ -1,0 +1,37 @@
+.btn__case {
+  align-items: center;
+  background: #fafafa;
+  border: 1.5px solid rgb(242 84 45 / 50%);
+  border-radius: 40px;
+  display: flex;
+  font-size: 20px;
+  font-weight: 500;
+  gap: 8px;
+  justify-content: center;
+  line-height: 1;
+  padding: 8px 16px;
+  text-transform: capitalize;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s,
+    color 0.3s;
+
+  &:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+  }
+}
+
+.map {
+  margin-top: 32px;
+
+  &__frame {
+    aspect-ratio: 16/9;
+    position: relative;
+
+    img {
+      border-radius: 20px;
+    }
+  }
+}

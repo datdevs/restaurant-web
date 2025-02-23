@@ -1,0 +1,13 @@
+@let data = pageData();
+
+@if (data) {
+  <app-hero></app-hero>
+
+  <app-block-one [data]="data?.bloc_1"></app-block-one>
+
+  <app-block-two [data]="data?.bloc_2"></app-block-two>
+
+  <app-block-two-two class="block mt-20" [data]="data?.bloc_2_2"></app-block-two-two>
+
+  <app-block-three [data]="data?.bloc_3"></app-block-three>
+}

@@ -1,8 +1,7 @@
-import { BudgetModel, MonthRange } from '../../types';
+import { LocaleType } from '../../types';
 
 type StorageObjectMap = {
-  monthRange: MonthRange;
-  budget: BudgetModel;
+  lang: LocaleType;
 };
 
 export type StorageObjectType = keyof StorageObjectMap;

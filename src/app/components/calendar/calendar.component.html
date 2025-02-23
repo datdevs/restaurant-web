@@ -1,0 +1,81 @@
+<div class="calendar">
+  <div class="calendar__header">
+    <button (click)="prevMonth()">
+      <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M14.9998 19.92L8.47984 13.4C7.70984 12.63 7.70984 11.37 8.47984 10.6L14.9998 4.07999"
+          stroke="#F2542D"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          stroke-width="2"
+        />
+      </svg>
+    </button>
+
+    <div class="calendar__selector" [formGroup]="monthYearControl">
+      <select formControlName="month" id="calendar__month-select">
+        @for (month of months(); track $index) {
+          <option [value]="month.value">
+            {{ month.name }}
+          </option>
+        }
+      </select>
+
+      <select formControlName="year">
+        @for (year of years; track year) {
+          <option [value]="year">
+            {{ year }}
+          </option>
+        }
+      </select>
+    </div>
+
+    <button (click)="nextMonth()">
+      <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M8.91016 19.92L15.4302 13.4C16.2002 12.63 16.2002 11.37 15.4302 10.6L8.91016 4.07999"
+          stroke="#F2542D"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          stroke-width="2"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <div class="calendar__grid">
+    <div class="grid grid-cols-7 gap-3 mb-4">
+      @for (day of weekdays; track day) {
+        <div class="calendar__weekday">
+          {{ day }}
+        </div>
+      }
+    </div>
+
+    <div class="grid grid-cols-7 gap-3">
+      @for (day of calendarDays(); track day) {
+        @let date = day.date;
+        @let offset = day.monthOffset;
+
+        <button
+          class="calendar__day"
+          [class.calendar__day_busy]="isBusyDay(date) && offset === 0"
+          [class.calendar__day_out-of-range]="offset !== 0"
+          [class.calendar__day_selected]="selectedDate() === date"
+          [class.calendar__day_today]="currentDate() === date"
+          (click)="selectDate(date, offset)"
+        >
+          <span>{{ date.getDate() }}</span>
+
+          @if (offset === 0) {
+            <span class="calendar__day_state" [class.calendar__day_state_busy]="isBusyDay(date)">
+              {{ (isBusyDay(date) ? 'CALENDAR.BUSY' : 'CALENDAR.FREE') | translate }}
+            </span>
+          }
+        </button>
+      }
+    </div>
+  </div>
+</div>

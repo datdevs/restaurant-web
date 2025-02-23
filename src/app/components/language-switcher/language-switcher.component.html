@@ -1,0 +1,5 @@
+@for (lang of languages; track lang) {
+  <button [class.active]="selectedLang() === lang" (click)="setLanguage(lang)">
+    <img alt="Flag" loading="lazy" [src]="'/assets/images/flags/' + lang + '.svg'" />
+  </button>
+}

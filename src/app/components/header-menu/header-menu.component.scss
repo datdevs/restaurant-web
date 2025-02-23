@@ -1,0 +1,28 @@
+.navigation {
+  gap: 24px;
+
+  &__link {
+    color: #fff;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  @media (width > 1600px) {
+    &__item {
+      &:first-child {
+        margin-right: 123px;
+      }
+
+      &:nth-child(2) {
+        margin-right: 74px;
+      }
+
+      &:nth-child(3) {
+        margin-right: 45px;
+      }
+    }
+  }
+}
